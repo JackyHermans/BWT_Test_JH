@@ -1,0 +1,23 @@
+﻿<Window x:Class="BWT_JH.BWT_Test_JH"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:global="clr-namespace:System.Globalization;assembly=mscorlib"
+        Title="MainWindow" Height="500" Width="1200">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" Executed="WaardeOpslaan"></CommandBinding>
+    </Window.CommandBindings>
+
+    
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Height="100" Width="300" Margin="10,10">
+            <DockPanel>
+                <Menu Height="24" Name="MenuBalk" DockPanel.Dock="Top">
+                    <MenuItem Name="WaardesOpslaan" Header="Waardes_opslaan" Command="Save" FontSize="14"></MenuItem>
+                </Menu>
+                <ToolBarTray Height="24" DockPanel.Dock="Top"></ToolBarTray>
+            </DockPanel>
+            <Slider Height="23" Width="250" Name="InputSlider" Minimum="10000" Maximum="50000" Margin="10" SmallChange="1" IsSnapToTickEnabled="True" Value="10000" ToolTip="Wijzig hier de waarde"></Slider>
+        </StackPanel>
+        <TextBox Height="20" Width="50" Margin="350,10" Name="GekozenWaarde" Text="{Binding ElementName=InputSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+    </StackPanel>
+</Window>
